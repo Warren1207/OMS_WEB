@@ -26,9 +26,9 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent, data: { title: '仪表盘', titleI18n: 'dashboard' } },
       // 客户管理
-      // { path: 'customermanager', loadChildren: './widgets/widgets.module#WidgetsModule' },
+       { path: 'customer', loadChildren: './customer/customer.module#CustomerModule' },
       // 订单管理
-      // { path: 'ordermanager', loadChildren: './widgets/widgets.module#WidgetsModule' },
+      // { path: 'order', loadChildren: './widgets/widgets.module#WidgetsModule' },
       // 出货单管理
       // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' },
       // 供应商管理
