@@ -12,28 +12,33 @@ import { Component, OnInit, ViewChild } from '@angular/core';
     i: any;
     schema: SFSchema = {
       properties: {
-        no: { type: 'string', title: '编号' },
-        owner: { type: 'string', title: '姓名', maxLength: 15 },
-        callNo: { type: 'number', title: '调用次数' },
-        href: { type: 'string', title: '链接', format: 'uri' },
-        description: { type: 'string', title: '描述', maxLength: 140 },
+        number : { type: 'string', title: '供应商编号', maxLength: 100 },
+        name: { type: 'string', title: '供应商简称', maxLength: 100 },
+        email: { type: 'string', title: '邮箱地址', format: 'email', maxLength: 100 },
+        tel: { type: 'string', title: '联系人手机号码', maxLength: 100 },        
+        code: { type: 'string', title: '邀请码', maxLength: 100 },
       },
-      required: ['owner', 'callNo', 'href', 'description'],
+      required: ['number', 'name'],
     };
     ui: SFUISchema = {
       '*': {
-        spanLabelFixed: 100,
+        spanLabelFixed: 120,
         grid: { span: 12 },
       },
-      $no: {
+      $number: {
         widget: 'text'
       },
-      $href: {
+      $name: {
         widget: 'string',
       },
-      $description: {
-        widget: 'textarea',
-        grid: { span: 24 },
+      $tel: {
+        widget: 'string',
+      },
+      $email: {
+        widget: 'string',
+      },
+      $code: {
+        widget: 'string',
       },
     };
 

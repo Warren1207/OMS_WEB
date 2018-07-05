@@ -24,7 +24,7 @@ const routes: Routes = [
     component: LayoutDefaultComponent,
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent, data: { title: '仪表盘', titleI18n: 'dashboard' } },
+      { path: 'dashboard', component: DashboardComponent, data: { title: '主页' } },
       // 客户管理
        { path: 'customer', loadChildren: './customer/customer.module#CustomerModule' },
       // 订单管理

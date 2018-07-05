@@ -15,18 +15,19 @@ export class CustomerCustomerComponent implements OnInit {
     url = `/user`;
     searchSchema: SFSchema = {
       properties: {
-        no: {
+        number: {
           type: 'string',
-          title: '编号'
+          title: '供应商编号'
         }
       }
     };
     @ViewChild('st') st: SimpleTableComponent;
     columns: SimpleTableColumn[] = [
-      { title: '编号', index: 'no' },
-      { title: '调用次数', type: 'number', index: 'callNo' },
-      { title: '头像', type: 'img', width: '50px', index: 'avatar' },
-      { title: '时间', type: 'date', index: 'updatedAt' },
+      { title: '供应商编号', index: 'number' },
+      { title: '供应商简称', index: 'name' },
+      { title: '联系人手机号码',  index: 'tel' },
+      { title: '邮箱地址',  index: 'email' },
+      { title: '状况码',  index: 'code' },
       {
         title: '',
         buttons: [
