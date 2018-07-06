@@ -12,32 +12,32 @@ import { Component, OnInit, ViewChild } from '@angular/core';
     i: any;
     schema: SFSchema = {
       properties: {
-        number : { type: 'string', title: '供应商编号', maxLength: 100 },
-        name: { type: 'string', title: '供应商简称', maxLength: 100 },
-        email: { type: 'string', title: '邮箱地址', format: 'email', maxLength: 100 },
-        tel: { type: 'string', title: '联系人手机号码', maxLength: 100 },        
-        code: { type: 'string', title: '邀请码', maxLength: 100 },
+        NUMBER : { type: 'string', title: '供应商编号', maxLength: 100 },
+        NAME: { type: 'string', title: '供应商简称', maxLength: 100 },
+        EMAIL: { type: 'string', title: '邮箱地址', format: 'email', maxLength: 100 },
+        TEL: { type: 'string', title: '联系人手机号码', maxLength: 100 },        
+        CODE: { type: 'string', title: '邀请码', maxLength: 100 },
       },
-      required: ['number', 'name'],
+      required: ['NUMBER', 'NAME'],
     };
     ui: SFUISchema = {
       '*': {
         spanLabelFixed: 120,
         grid: { span: 12 },
       },
-      $number: {
+      $NUMBER: {
         widget: 'text'
       },
-      $name: {
+      $NAME: {
         widget: 'string',
       },
-      $tel: {
+      $TEL: {
         widget: 'string',
       },
-      $email: {
+      $EMAIL: {
         widget: 'string',
       },
-      $code: {
+      $CODE: {
         widget: 'string',
       },
     };
@@ -49,12 +49,12 @@ import { Component, OnInit, ViewChild } from '@angular/core';
     ) {}
 
     ngOnInit(): void {
-      if (this.record.id > 0)
-      this.http.get(`/user/${this.record.id}`).subscribe(res => (this.i = res));
+      if (this.record.ID > 0)
+      this.http.get(`api/customer/get/${this.record.ID}`).subscribe(res => (this.i = res));
     }
 
     save(value: any) {
-      this.http.post(`/user/${this.record.id}`, value).subscribe(res => {
+      this.http.post(`api/customer/save/${this.record.ID>0?this.record.ID:'add'}`, value).subscribe(res => {
         this.msgSrv.success('保存成功');
         this.modal.close(true);
       });

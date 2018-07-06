@@ -4,6 +4,7 @@ import { _HttpClient, ModalHelper } from '@delon/theme';
 import { SimpleTableColumn, SimpleTableComponent } from '@delon/abc';
 import { SFSchema } from '@delon/form';
 import { CustomerCustomerEditComponent } from 'app/routes/customer/customer/edit/edit.component';
+import { CustomerCustomerViewComponent } from 'app/routes/customer/customer/view/view.component';
 
 @Component({
   selector: 'app-customer-customer',
@@ -12,10 +13,11 @@ import { CustomerCustomerEditComponent } from 'app/routes/customer/customer/edit
 export class CustomerCustomerComponent implements OnInit {
 
     params: any = {};
-    url = `/user`;
+    url = `api/customer/query`;
+    //url = `/user`;
     searchSchema: SFSchema = {
       properties: {
-        number: {
+        NUMBER: {
           type: 'string',
           title: '供应商编号'
         }
@@ -23,15 +25,15 @@ export class CustomerCustomerComponent implements OnInit {
     };
     @ViewChild('st') st: SimpleTableComponent;
     columns: SimpleTableColumn[] = [
-      { title: '供应商编号', index: 'number' },
-      { title: '供应商简称', index: 'name' },
-      { title: '联系人手机号码',  index: 'tel' },
-      { title: '邮箱地址',  index: 'email' },
-      { title: '状况码',  index: 'code' },
+      { title: '供应商编号', index: 'NUMBER' },
+      { title: '供应商简称', index: 'NAME' },
+      { title: '联系人手机号码',  index: 'TEL' },
+      { title: '邮箱地址',  index: 'EMAIL' },
+      { title: '状况码',  index: 'CODE' },
       {
         title: '',
         buttons: [
-          // { text: '查看', click: (item: any) => `/form/${item.id}` },
+           { text: '查看', type: 'static', component: CustomerCustomerViewComponent, click: 'reload' },
            { text: '编辑', type: 'static', component: CustomerCustomerEditComponent, click: 'reload' },
         ]
       }

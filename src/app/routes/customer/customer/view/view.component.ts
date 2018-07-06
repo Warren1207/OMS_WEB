@@ -17,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
     ) { }
 
     ngOnInit(): void {
-      this.http.get(`/user/${this.record.id}`).subscribe(res => this.i = res);
+      this.http.get(`api/customer/get/${this.record.ID}`).subscribe(res => this.i = res);
     }
 
     close() {
