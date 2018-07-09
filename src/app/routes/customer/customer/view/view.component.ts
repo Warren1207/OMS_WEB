@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-  import { NzModalRef, NzMessageService } from 'ng-zorro-antd';
-  import { _HttpClient } from '@delon/theme';
+import { NzMessageService } from 'ng-zorro-antd';
+import { _HttpClient } from '@delon/theme';
+import { ActivatedRoute } from '@angular/router';
+import { CustomerService } from '../../customer.service';
 
   @Component({
     selector: 'app-customer-customer-view',
@@ -9,18 +11,19 @@ import { Component, OnInit } from '@angular/core';
   export class CustomerCustomerViewComponent implements OnInit {
     record: any = {};
     i: any;
-
+    id: any = this.activateInfo.snapshot.params['id'];
     constructor(
-      private modal: NzModalRef,
       public msgSrv: NzMessageService,
-      public http: _HttpClient
+      public http: _HttpClient,
+      private activateInfo: ActivatedRoute,
+      private service: CustomerService,
     ) { }
 
     ngOnInit(): void {
-      this.http.get(`api/customer/get/${this.record.ID}`).subscribe(res => this.i = res);
+      this.service.getFn(`api/customer/get/`+this.id).subscribe(res => this.i = res);
     }
 
     close() {
-      this.modal.destroy();
+      
     }
   }

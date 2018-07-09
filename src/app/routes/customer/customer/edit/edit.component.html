@@ -1,10 +1,164 @@
-<div class="modal-header">
-    <div class="modal-title">{{ record.id?'编辑':'添加' }} 供应商</div>
+<div class="content__title">
+    <h1>
+      供应商信息编辑
+    </h1>
 </div>
-<nz-spin *ngIf="!i" class="modal-spin"></nz-spin>
-<sf *ngIf="i" #sf mode="edit" [schema]="schema" [ui]="ui" [formData]="i" button="none">
-    <div class="modal-footer">
-        <button nz-button type="button" (click)="close()">关闭</button>
-        <button nz-button type="submit" [nzType]="'primary'" (click)="save(sf.value)" [disabled]="!sf.valid" [nzLoading]="http.loading">保存</button>
-    </div>
-</sf>
+<nz-card>
+    <!-- <sf *ngIf="i" #sf mode="edit" [schema]="schema" [ui]="ui" [formData]="i" button="none">
+        <div class="modal-footer">
+            <button nz-button type="button" (click)="continue()">{{continueBtn}}</button>
+            <button nz-button type="submit" [nzType]="'primary'" (click)="save(sf.value)" [disabled]="!sf.valid" [nzLoading]="http.loading">保存</button>
+        </div>
+    </sf> -->
+    <form nz-form [formGroup]="basicForm">        
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">供应商编号</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="NUMBER" name="NUMBER" nz-input>                     
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label nzRequired [nzSpan]="4">供应商简称</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="NAME" name="NAME" nz-input>
+                        <nz-form-explain *ngIf="basicForm.get('NAME').dirty && basicForm.get('NAME').errors">请填写供应商简称</nz-form-explain>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">邮箱地址</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="EMAIL" name="EMAIL" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">联系人手机号码</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="TEL" name="TEL" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">邀请码</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="CODE" name="CODE" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+    </form>
+    <form nz-form [formGroup]="detailForm" *ngIf="!isCollapse">        
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">负责人</nz-form-label>
+                    <nz-form-control style="flex: 1;">                 
+                        <input type="text" formControlName="MANAGER" name="MANAGER" nz-input>     
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label nzRequired [nzSpan]="4">厂商分类</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="TYPE" name="TYPE" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">币种</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="CURRENCY" name="CURRENCY" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">税种</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="TAX" name="TAX" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">付款条件</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="TERM_PAYMENT" name="TERM_PAYMENT" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">地区</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="AREA" name="AREA" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">国家</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="COUNTRY" name="COUNTRY" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">区域</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="REGION" name="REGION" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">电话</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="TEL" name="TEL" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">送货地址</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="ADDRESS" name="ADDRESS" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+    </form>
+    <div nz-row>
+        <div nz-col [nzSpan]="24" style="text-align: right;">
+          <button nz-button [nzType]="'primary'">提交</button>
+          <button nz-button (click)="resetForm()">重置</button>
+          <a style="margin-left:8px;font-size:12px;" (click)="toggleCollapse()">
+            展开更多
+            <i class="anticon" [class.anticon-down]="isCollapse" [class.anticon-up]="!isCollapse"></i>
+          </a>
+        </div>
+      </div>
+</nz-card>

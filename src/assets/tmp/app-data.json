@@ -14,7 +14,7 @@
         "hideInBreadcrumb": true,
         "children": [{
                 "text": "客户管理",
-                "link": "/customer/customer",
+                "link": "/customer/list",
                 "icon": "icon-speedometer"
             },
             {

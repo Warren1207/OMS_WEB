@@ -1,14 +1,14 @@
-<div class="modal-header">
-  <div class="modal-title">查看 {{ record.NAME }} 信息</div>
+<div class="content__title">
+  <h1>
+    供应商信息查看
+  </h1>
 </div>
-<nz-spin *ngIf="!i" class="modal-spin"></nz-spin>
-<desc-list *ngIf="i">
-  <desc-list-item term="供应商编号">{{ i.NUMBER }}</desc-list-item>
-  <desc-list-item term="供应商简称">{{ i.NAME }}</desc-list-item>
-  <desc-list-item term="邮箱地址">{{i.EMAIL}}</desc-list-item>
-  <desc-list-item term="联系人手机号码">{{i.TEL}}</desc-list-item>
-  <desc-list-item term="邀请码">{{i.CODE}}</desc-list-item>
-</desc-list>
-<div class="modal-footer">
-  <button nz-button type="button" (click)="close()">关闭</button>
-</div>
+<nz-card>
+  <desc-list *ngIf="i">
+    <desc-list-item term="供应商编号">{{ i.NUMBER }}</desc-list-item>
+    <desc-list-item term="供应商简称">{{ i.NAME }}</desc-list-item>
+    <desc-list-item term="邮箱地址">{{i.EMAIL}}</desc-list-item>
+    <desc-list-item term="联系人手机号码">{{i.TEL}}</desc-list-item>
+    <desc-list-item term="邀请码">{{i.CODE}}</desc-list-item>
+  </desc-list>
+</nz-card>

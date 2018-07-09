@@ -4,6 +4,7 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerCustomerComponent } from './customer/customer.component';
 import { CustomerCustomerEditComponent } from './customer/edit/edit.component';
 import { CustomerCustomerViewComponent } from './customer/view/view.component';
+import { CustomerService } from './customer.service';
 
 const COMPONENTS = [
   CustomerCustomerComponent];
@@ -20,6 +21,8 @@ const COMPONENTS_NOROUNT = [
     ...COMPONENTS,
     ...COMPONENTS_NOROUNT
   ],
-  entryComponents: COMPONENTS_NOROUNT
+  entryComponents: COMPONENTS_NOROUNT,
+  /**注入 Service */
+  providers: [CustomerService]
 })
 export class CustomerModule { }

@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Injector } from '@angular/core';
 import { filter } from 'rxjs/operators';
 import { _HttpClient, ModalHelper } from '@delon/theme';
 import { SimpleTableColumn, SimpleTableComponent } from '@delon/abc';
 import { SFSchema } from '@delon/form';
-import { CustomerCustomerEditComponent } from 'app/routes/customer/customer/edit/edit.component';
-import { CustomerCustomerViewComponent } from 'app/routes/customer/customer/view/view.component';
+import { CustomerCustomerViewComponent } from './view/view.component';
+import { CustomerCustomerEditComponent } from './edit/edit.component';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-customer-customer',
@@ -14,12 +16,11 @@ export class CustomerCustomerComponent implements OnInit {
 
     params: any = {};
     url = `api/customer/query`;
-    //url = `/user`;
     searchSchema: SFSchema = {
       properties: {
-        NUMBER: {
+        NAME: {
           type: 'string',
-          title: '供应商编号'
+          title: '供应商简称'
         }
       }
     };
@@ -33,21 +34,26 @@ export class CustomerCustomerComponent implements OnInit {
       {
         title: '',
         buttons: [
-           { text: '查看', type: 'static', component: CustomerCustomerViewComponent, click: 'reload' },
-           { text: '编辑', type: 'static', component: CustomerCustomerEditComponent, click: 'reload' },
+          //  { text: '查看', type: 'static', component: CustomerCustomerViewComponent, click: 'reload' },
+          { text: '查看', click: function(item){
+            const router = this.injector.get(Router);
+            router.navigate(['/customer/view/' , item.ID]);
+          }.bind(this) },
+           { text: '编辑', click: function(item){
+            const router = this.injector.get(Router);
+            router.navigate(['/customer/edit/' , item.ID]);
+          }.bind(this) },
         ]
       }
     ];
 
-    constructor(private http: _HttpClient, private modal: ModalHelper) { }
+    constructor(private http: _HttpClient, private modal: ModalHelper,private injector: Injector) { }
 
     ngOnInit() { }
 
     add() {
-      this.modal
-        .static(CustomerCustomerEditComponent, { i: { id: 0 } })
-        .pipe(filter(w => w === true))
-        .subscribe(() => this.st.reload());
+      const router = this.injector.get(Router);
+            router.navigate(['/customer/edit/0']);
     }
 
 }
