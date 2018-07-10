@@ -19,7 +19,7 @@
             },
             {
                 "text": "订单管理",
-                "link": "/widgets",
+                "link": "/order/list",
                 "icon": "icon-rocket"
             },
             {

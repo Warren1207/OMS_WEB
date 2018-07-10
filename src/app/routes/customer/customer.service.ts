@@ -13,11 +13,11 @@ export class CustomerService {
 
     /* GET 方法 */
     getFn(url: string) {
-        return this.http.get('' + url).catch(this.handleError);
+        return this.http.get('api/customer/' + url).catch(this.handleError);
     }
     /* POST 方法 */
     postFn(url: string, params: any) {
-        return this.http.post('' + url, params, this.httpHead).catch(this.handleError);
+        return this.http.post('api/customer/' + url, params, this.httpHead).catch(this.handleError);
     }
 
     handleError(error: any) {

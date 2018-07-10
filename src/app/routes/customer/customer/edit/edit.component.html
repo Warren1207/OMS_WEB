@@ -16,7 +16,7 @@
                 <nz-form-item nzFlex>
                     <nz-form-label [nzSpan]="4">供应商编号</nz-form-label>
                     <nz-form-control style="flex: 1;">
-                        <input type="text" formControlName="NUMBER" name="NUMBER" nz-input>                     
+                        <input type="text" formControlName="NUMBER" name="NUMBER" readonly nz-input>                     
                     </nz-form-control>
                 </nz-form-item>
             </div>
@@ -36,6 +36,7 @@
                     <nz-form-label [nzSpan]="4">邮箱地址</nz-form-label>
                     <nz-form-control style="flex: 1;">
                         <input type="text" formControlName="EMAIL" name="EMAIL" nz-input>
+                        <nz-form-explain *ngIf="basicForm.get('EMAIL').dirty && basicForm.get('EMAIL').errors">邮箱格式错误</nz-form-explain>
                     </nz-form-control>
                 </nz-form-item>
             </div>
@@ -71,7 +72,7 @@
             </div>
             <div nz-col [nzSpan]="12">
                 <nz-form-item nzFlex>
-                    <nz-form-label nzRequired [nzSpan]="4">厂商分类</nz-form-label>
+                    <nz-form-label [nzSpan]="4">厂商分类</nz-form-label>
                     <nz-form-control style="flex: 1;">
                         <input type="text" formControlName="TYPE" name="TYPE" nz-input>
                     </nz-form-control>
@@ -153,10 +154,10 @@
     </form>
     <div nz-row>
         <div nz-col [nzSpan]="24" style="text-align: right;">
-          <button nz-button [nzType]="'primary'">提交</button>
+          <button nz-button [nzType]="'primary'" (click)="submitForm()">提交</button>
           <button nz-button (click)="resetForm()">重置</button>
           <a style="margin-left:8px;font-size:12px;" (click)="toggleCollapse()">
-            展开更多
+            更多
             <i class="anticon" [class.anticon-down]="isCollapse" [class.anticon-up]="!isCollapse"></i>
           </a>
         </div>

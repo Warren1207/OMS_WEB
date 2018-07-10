@@ -3,40 +3,40 @@ import { SimpleTableColumn, SimpleTableComponent } from '@delon/abc';
 import { SFSchema } from '@delon/form';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-customer-customer',
-  templateUrl: './customer.component.html',
+  selector: 'app-order-order',
+  templateUrl: './order.component.html',
 })
-export class CustomerCustomerComponent implements OnInit {
+export class OrderOrderComponent implements OnInit {
 
     params: any = {};
-    url = `api/customer/query`;
+    url = `/api/order/query`;
     searchSchema: SFSchema = {
       properties: {
-        NAME: {
+        NUMBER: {
           type: 'string',
-          title: '供应商简称'
+          title: '订单单号'
         }
       }
     };
     @ViewChild('st') st: SimpleTableComponent;
     columns: SimpleTableColumn[] = [
-      { title: '供应商编号', index: 'NUMBER' },
-      { title: '供应商简称', index: 'NAME' },
-      { title: '联系人手机号码',  index: 'TEL' },
-      { title: '邮箱地址',  index: 'EMAIL' },
-      { title: '状况码',  index: 'CODE' },
+      { title: '订单单号', index: 'NUMBER' },
+      { title: '贸易性质', index: 'TYPE' },
+      { title: '订单来源',  index: 'SOURCE' },
+      { title: '客户编号',  index: 'CUSTOMER_NUMBER' },
+      { title: '客户简称',  index: 'CUSTOMER_ABBREVIATION' },
+      { title: '订单日期', type: 'date', index: 'ORDER_DATE' },
       {
-        title: '',
+        title: '操作',
         buttons: [
           { text: '查看', click: function(item){
             const router = this.injector.get(Router);
-            router.navigate(['/customer/view/' , item.ID]);
+            router.navigate(['/order/view/' , item.ID]);
           }.bind(this) },
            { text: '编辑', click: function(item){
             const router = this.injector.get(Router);
-            router.navigate(['/customer/edit/' , item.ID]);
+            router.navigate(['/order/edit/' , item.ID]);
           }.bind(this) },
         ]
       }
@@ -47,8 +47,7 @@ export class CustomerCustomerComponent implements OnInit {
     ngOnInit() { }
 
     add() {
-      const router = this.injector.get(Router);
-            router.navigate(['/customer/edit/0']);
+
     }
 
 }

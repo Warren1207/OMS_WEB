@@ -4,11 +4,21 @@
   </h1>
 </div>
 <nz-card>
-  <desc-list *ngIf="i">
-    <desc-list-item term="供应商编号">{{ i.NUMBER }}</desc-list-item>
-    <desc-list-item term="供应商简称">{{ i.NAME }}</desc-list-item>
-    <desc-list-item term="邮箱地址">{{i.EMAIL}}</desc-list-item>
-    <desc-list-item term="联系人手机号码">{{i.TEL}}</desc-list-item>
-    <desc-list-item term="邀请码">{{i.CODE}}</desc-list-item>
+  <desc-list *ngIf="base && detail">
+    <desc-list-item term="供应商编号">{{ base.NUMBER }}</desc-list-item>
+    <desc-list-item term="供应商简称">{{ base.NAME }}</desc-list-item>
+    <desc-list-item term="邮箱地址">{{base.EMAIL}}</desc-list-item>
+    <desc-list-item term="联系人手机号码">{{base.TEL}}</desc-list-item>
+    <desc-list-item term="邀请码">{{base.CODE}}</desc-list-item>
+    <desc-list-item term="负责人">{{detail.MANAGER}}</desc-list-item>
+    <desc-list-item term="厂商分类">{{detail.TYPE}}</desc-list-item>
+    <desc-list-item term="币种">{{detail.CURRENCY}}</desc-list-item>
+    <desc-list-item term="税种">{{detail.TAX}}</desc-list-item>
+    <desc-list-item term="付款条件">{{detail.TERM_PAYMENT}}</desc-list-item>
+    <desc-list-item term="地区">{{detail.AREA}}</desc-list-item>
+    <desc-list-item term="国家">{{detail.COUNTRY}}</desc-list-item>
+    <desc-list-item term="区域">{{detail.REGION}}</desc-list-item>
+    <desc-list-item term="电话">{{detail.TEL}}</desc-list-item>
+    <desc-list-item term="送货地址">{{detail.ADDRESS}}</desc-list-item>
   </desc-list>
 </nz-card>

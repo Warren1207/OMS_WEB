@@ -28,7 +28,7 @@ const routes: Routes = [
       // 客户管理
        { path: 'customer', loadChildren: './customer/customer.module#CustomerModule' },
       // 订单管理
-      // { path: 'order', loadChildren: './widgets/widgets.module#WidgetsModule' },
+       { path: 'order', loadChildren: './order/order.module#OrderModule' },
       // 出货单管理
       // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' },
       // 供应商管理

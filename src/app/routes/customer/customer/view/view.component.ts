@@ -10,7 +10,8 @@ import { CustomerService } from '../../customer.service';
   })
   export class CustomerCustomerViewComponent implements OnInit {
     record: any = {};
-    i: any;
+    base: any;
+    detail: any;
     id: any = this.activateInfo.snapshot.params['id'];
     constructor(
       public msgSrv: NzMessageService,
@@ -20,7 +21,12 @@ import { CustomerService } from '../../customer.service';
     ) { }
 
     ngOnInit(): void {
-      this.service.getFn(`api/customer/get/`+this.id).subscribe(res => this.i = res);
+      this.service.getFn(`get/`+this.id).subscribe(function(res){
+        this.base = res;
+        if(this.base.NUMBER){
+          this.service.getFn('getDetail/'+this.base.NUMBER).subscribe(res => this.detail = res);
+        }
+      }.bind(this));
     }
 
     close() {
