@@ -1,0 +1,271 @@
+<div class="content__title">
+  <h1>
+    订单信息编辑
+  </h1>
+</div>
+<nz-card>
+  <form nz-form [formGroup]="basicForm">        
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">订单单号</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="NUMBER" name="NUMBER" readonly nz-input>                     
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label nzRequired [nzSpan]="4">贸易性质</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-select  formControlName="TYPE" name="TYPE" nzAllowClear nzPlaceHolder="请选择">
+                        <nz-option nzValue="1" nzLabel="内销"></nz-option>
+                        <nz-option nzValue="2" nzLabel="外贸"></nz-option>
+                      </nz-select>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">订单日期</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                    <nz-date-picker style="width: 100%" formControlName="ORDER_DATE" name="ORDER_DATE" ></nz-date-picker>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">订单来源</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                    <nz-select  formControlName="SOURCE" name="SOURCE" nzAllowClear nzPlaceHolder="请选择">
+                      <nz-option nzValue="1" nzLabel="录入"></nz-option>
+                    </nz-select>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">客户编号</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                    <input type="text" formControlName="CUSTOMER_NUMBER" name="CUSTOMER_NUMBER"  nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">客户简称</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                    <input type="text" formControlName="CUSTOMER_ABBREVIATION" name="CUSTOMER_ABBREVIATION"  nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">业务员</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                    <input type="text" formControlName="SALESMAN" name="SALESMAN"  nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">部门</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                    <input type="text" formControlName="DEP" name="DEP"  nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">币种</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                    <input type="text" formControlName="CURRENCY" name="CURRENCY"  nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">汇率</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                    <input type="text" formControlName="CURRENCY_RATE" name="CURRENCY_RATE"  nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">税种</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                    <input type="text" formControlName="TAX" name="TAX"  nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">税率</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                    <input type="text" formControlName="TAX_RATE" name="TAX_RATE"  nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">收款条件</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                    <input type="text" formControlName="COLLECTION_TERMS" name="COLLECTION_TERMS"  nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">送货地址</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                    <input type="text" formControlName="DELIVERY_ADDRESS" name="DELIVERY_ADDRESS"  nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="24">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="2">备注</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                    <textarea row="4" nz-input formControlName="REMARKS" name="REMARKS"></textarea>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+
+  </form>
+  <form nz-form [formGroup]="detailForm" *ngIf="!isCollapse">        
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">订单单号</nz-form-label>
+                  <nz-form-control style="flex: 1;">                 
+                      <input type="text" formControlName="NUMBER" name="NUMBER" readonly nz-input>     
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">产品编码</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PRODUCT_CODE" name="PRODUCT_CODE" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">品名</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PRODUCT_NAME" name="PRODUCT_NAME" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">规格</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="SPEC" name="SPEC" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">单位</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="UNIT" name="UNIT" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">数量</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-input-number style="width: 100%" formControlName="COUNT" name="COUNT" ></nz-input-number>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">未税单价</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-input-number style="width: 100%" formControlName="UNTAXED_PRICE" name="UNTAXED_PRICE" ></nz-input-number>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">含税单价</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-input-number style="width: 100%" formControlName="TAX_PRICE" name="TAX_PRICE" ></nz-input-number>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">未税金额</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-input-number style="width: 100%" formControlName="UNTAXED_MONEY" name="UNTAXED_MONEY" ></nz-input-number>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">含税金额</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-input-number style="width: 100%" formControlName="TAX_MONEY" name="TAX_MONEY" ></nz-input-number>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">约定交货日</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-date-picker formControlName="DELIVERY_DATE" name="DELIVERY_DATE" ></nz-date-picker>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">排定交货日</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-date-picker formControlName="EXPECT_DELIVERY_DATE" name="EXPECT_DELIVERY_DATE" ></nz-date-picker>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+  </form>
+  <div nz-row>
+      <div nz-col [nzSpan]="24" style="text-align: right;">
+        <button nz-button [nzType]="'primary'" (click)="submitForm()">提交</button>
+        <button nz-button (click)="resetForm()">重置</button>
+        <a style="margin-left:8px;font-size:12px;" (click)="toggleCollapse()">
+          更多
+          <i class="anticon" [class.anticon-down]="isCollapse" [class.anticon-up]="!isCollapse"></i>
+        </a>
+      </div>
+    </div>
+</nz-card>

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class OrderOrderComponent implements OnInit {
 
     params: any = {};
-    url = `/api/order/query`;
+    url = `api/order/query`;
     searchSchema: SFSchema = {
       properties: {
         NUMBER: {
@@ -47,7 +47,8 @@ export class OrderOrderComponent implements OnInit {
     ngOnInit() { }
 
     add() {
-
+      const router = this.injector.get(Router);
+      router.navigate(['/order/edit/0']);
     }
 
 }
