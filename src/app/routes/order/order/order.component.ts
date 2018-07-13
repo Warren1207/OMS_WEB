@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class OrderOrderComponent implements OnInit {
 
     params: any = {};
-    url = `api/order/query`;
+    url = `omsApi/order/query`;
     searchSchema: SFSchema = {
       properties: {
         NUMBER: {

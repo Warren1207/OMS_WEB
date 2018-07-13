@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class CustomerCustomerComponent implements OnInit {
 
     params: any = {};
-    url = `api/customer/query`;
+    url = `omsApi/customer/query`;
     searchSchema: SFSchema = {
       properties: {
         NAME: {
