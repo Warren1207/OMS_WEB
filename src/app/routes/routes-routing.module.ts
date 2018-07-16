@@ -30,7 +30,7 @@ const routes: Routes = [
       // 订单管理
        { path: 'order', loadChildren: './order/order.module#OrderModule' },
       // 出货单管理
-      // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' },
+       { path: 'delivery', loadChildren: './delivery/delivery.module#DeliveryModule' },
       // 供应商管理
       // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' },
       // 采购单管理

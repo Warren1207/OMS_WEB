@@ -24,7 +24,7 @@
             },
             {
                 "text": "出货单管理",
-                "link": "/widgets",
+                "link": "/delivery/list",
                 "icon": "icon-grid"
             },
             {
