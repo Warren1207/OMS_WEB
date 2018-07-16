@@ -14,7 +14,7 @@
         "hideInBreadcrumb": true,
         "children": [{
                 "text": "客户管理",
-                "link": "/customer/list",
+                "link": "/widgets",
                 "icon": "icon-speedometer"
             },
             {
@@ -29,7 +29,7 @@
             },
             {
                 "text": "供应商管理",
-                "link": "/widgets",
+                "link": "/customer/list",
                 "icon": "icon-grid"
             },
             {

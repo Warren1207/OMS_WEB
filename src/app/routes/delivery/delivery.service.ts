@@ -13,11 +13,11 @@ export class DeliveryService {
 
     /* GET 方法 */
     getFn(url: string) {
-        return this.http.get('omsApi/order/' + url).catch(this.handleError);
+        return this.http.get('omsApi/delivery/' + url).catch(this.handleError);
     }
     /* POST 方法 */
     postFn(url: string, params: any) {
-        return this.http.post('omsApi/order/' + url, params, this.httpHead).catch(this.handleError);
+        return this.http.post('omsApi/delivery/' + url, params, this.httpHead).catch(this.handleError);
     }
 
     handleError(error: any) {
