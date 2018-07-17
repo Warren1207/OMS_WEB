@@ -4,6 +4,7 @@ import { ReceiveRoutingModule } from './receive-routing.module';
 import { ReceiveListComponent } from './list/list.component';
 import { ReceiveViewComponent } from './view/view.component';
 import { ReceiveEditComponent } from './edit/edit.component';
+import { ReceiveService } from './receive.service';
 
 const COMPONENTS = [
   ReceiveListComponent,
@@ -20,6 +21,8 @@ const COMPONENTS_NOROUNT = [];
     ...COMPONENTS,
     ...COMPONENTS_NOROUNT
   ],
-  entryComponents: COMPONENTS_NOROUNT
+  entryComponents: COMPONENTS_NOROUNT,
+  /**注入 Service */
+  providers: [ReceiveService]
 })
 export class ReceiveModule { }

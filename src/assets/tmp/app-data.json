@@ -34,12 +34,12 @@
             },
             {
                 "text": "采购单管理",
-                "link": "/widgets",
+                "link": "/purchase/list",
                 "icon": "icon-grid"
             },
             {
                 "text": "收货单管理",
-                "link": "/widgets",
+                "link": "/receive/list",
                 "icon": "icon-grid"
             },
             {

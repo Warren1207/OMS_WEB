@@ -26,17 +26,17 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent, data: { title: '主页' } },
       // 客户管理
-       { path: 'customer', loadChildren: './customer/customer.module#CustomerModule' },
+       //{ path: 'customer', loadChildren: './customer/customer.module#CustomerModule' },
       // 订单管理
        { path: 'order', loadChildren: './order/order.module#OrderModule' },
       // 出货单管理
        { path: 'delivery', loadChildren: './delivery/delivery.module#DeliveryModule' },
       // 供应商管理
-      // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' },
+       { path: 'customer', loadChildren: './customer/customer.module#CustomerModule' },
       // 采购单管理
-      // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' },
+       { path: 'purchase', loadChildren: './purchase/purchase.module#PurchaseModule' },
       // 收货单管理
-      // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' },
+       { path: 'receive', loadChildren: './receive/receive.module#ReceiveModule' },
       // 订单转采购
       // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' }
     ]
