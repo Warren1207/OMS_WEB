@@ -1,10 +1,293 @@
-<page-header [title]="'编辑 ' + id + ' 信息'"></page-header>
+<div class="content__title">
+    <h1>
+        采购单信息编辑
+    </h1>
+</div>
 <nz-card>
-  <nz-spin *ngIf="!i" class="modal-spin"></nz-spin>
-  <sf *ngIf="i" #sf mode="edit" [schema]="schema" [ui]="ui" [formData]="i" button="none">
-    <footer-toolbar errorCollect>
-      <button nz-button type="button" (click)="_location.back()" [nzLoading]="http.loading">返回</button>
-      <button nz-button type="submit" [nzType]="'primary'" (click)="save(sf.value)" [disabled]="!sf.valid" [nzLoading]="http.loading">保存</button>
-    </footer-toolbar>
-  </sf>
+    <form nz-form [formGroup]="basicForm">
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">采购单号</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PA01" name="PA01" readonly nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label nzRequired [nzSpan]="4">采购性质</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <nz-select formControlName="PA02" name="PA02" nzAllowClear nzPlaceHolder="请选择">
+                            <nz-option nzValue="1" nzLabel="一般采购"></nz-option>
+                        </nz-select>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">采购日期</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <nz-date-picker style="width: 100%" formControlName="PA03" name="PA03"></nz-date-picker>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">采购来源</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <nz-select formControlName="PA04" name="PA04" nzAllowClear nzPlaceHolder="请选择">
+                            <nz-option nzValue="1" nzLabel="录入"></nz-option>
+                            <nz-option nzValue="2" nzLabel="订单转入"></nz-option>
+                        </nz-select>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">供应商编号</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PA05" name="PA05" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">供应商简称</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PA06" name="PA06" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">采购员</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PA07" name="PA07" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">采购部门</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PA08" name="PA08" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">币种</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PA09" name="PA09" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">汇率</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PA10" name="PA10" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">税种</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PA11" name="PA11" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">税率</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PA12" name="PA12" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">付款</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PA13" name="PA13" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">送货地址</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PA14" name="PA14" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="24">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="2">备注</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <textarea row="4" nz-input formControlName="PA19" name="OB19"></textarea>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+
+    </form>
+    <form nz-form [formGroup]="detailForm" *ngIf="!isCollapse">
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">产品编码</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PAA03" name="PAA03" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">品名</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PAA04" name="PAA04" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">规格</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PAA05" name="PAA05" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">单位</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PAA06" name="PAA06" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">数量</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <nz-input-number style="width: 100%" formControlName="PAA07" name="PAA07"></nz-input-number>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">未税单价</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <nz-input-number style="width: 100%" formControlName="PAA08" name="PAA08"></nz-input-number>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">含税单价</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <nz-input-number style="width: 100%" formControlName="PAA09" name="PAA09"></nz-input-number>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">未税金额</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <nz-input-number style="width: 100%" formControlName="PAA10" name="PAA10"></nz-input-number>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">含税金额</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <nz-input-number style="width: 100%" formControlName="PAA11" name="PAA11"></nz-input-number>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">原始交货日</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <nz-date-picker style="width: 100%" formControlName="PAA12" name="PAA12"></nz-date-picker>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">原始到厂日</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <nz-date-picker style="width: 100%" formControlName="PAA13" name="PAA13"></nz-date-picker>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">原始到库日</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <nz-date-picker style="width: 100%" formControlName="PAA14" name="PAA14"></nz-date-picker>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">来源类型</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <nz-select formControlName="PAA15" name="PAA15" nzAllowClear nzPlaceHolder="请选择">
+                            <nz-option nzValue="1" nzLabel="订单"></nz-option>
+                        </nz-select>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row [nzGutter]="12">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nzFlex>
+                    <nz-form-label [nzSpan]="4">来源单号</nz-form-label>
+                    <nz-form-control style="flex: 1;">
+                        <input type="text" formControlName="PAA16" name="PAA16" nz-input>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+    </form>
+    <div nz-row>
+        <div nz-col [nzSpan]="24" style="text-align: right;">
+            <button nz-button [nzType]="'primary'" (click)="submitForm()">提交</button>
+            <button nz-button (click)="resetForm()">重置</button>
+            <a style="margin-left:8px;font-size:12px;" (click)="toggleCollapse()">
+        更多
+        <i class="anticon" [class.anticon-down]="isCollapse" [class.anticon-up]="!isCollapse"></i>
+      </a>
+        </div>
+    </div>
 </nz-card>
