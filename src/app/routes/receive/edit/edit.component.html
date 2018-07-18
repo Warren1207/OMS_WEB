@@ -1,10 +1,244 @@
-<page-header [title]="'编辑 ' + id + ' 信息'"></page-header>
+<div class="content__title">
+  <h1>
+      收货单信息编辑
+  </h1>
+</div>
 <nz-card>
-  <nz-spin *ngIf="!i" class="modal-spin"></nz-spin>
-  <sf *ngIf="i" #sf mode="edit" [schema]="schema" [ui]="ui" [formData]="i" button="none">
-    <footer-toolbar errorCollect>
-      <button nz-button type="button" (click)="_location.back()" [nzLoading]="http.loading">返回</button>
-      <button nz-button type="submit" [nzType]="'primary'" (click)="save(sf.value)" [disabled]="!sf.valid" [nzLoading]="http.loading">保存</button>
-    </footer-toolbar>
-  </sf>
+  <form nz-form [formGroup]="basicForm">
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">收货单号</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PB01" name="PB01" readonly nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label nzRequired [nzSpan]="4">采购性质</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-select formControlName="PB02" name="PB02" nzAllowClear nzPlaceHolder="请选择">
+                          <nz-option nzValue="1" nzLabel="一般采购"></nz-option>
+                      </nz-select>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">收货日期</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-date-picker style="width: 100%" formControlName="PB03" name="PB03"></nz-date-picker>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">采购单号</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PB04" name="PB04"  nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">供应商编号</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PB05" name="PB05" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">供应商简称</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PB06" name="PB06" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">申请人</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PB07" name="PB07" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">申请部门</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PB08" name="PB08" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">币种</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PB09" name="PB09" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">汇率</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PB10" name="PB10" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">税种</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PB11" name="PB11" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">税率</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PB12" name="PB12" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">付款条件</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PB13" name="PB13" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="24">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="2">备注</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <textarea row="4" nz-input formControlName="PB18" name="OB18"></textarea>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+
+  </form>
+  <form nz-form [formGroup]="detailForm" *ngIf="!isCollapse">
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">产品编码</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PBA03" name="PBA03" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">品名</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PBA04" name="PBA04" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">规格</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PBA05" name="PBA05" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">单位</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PBA06" name="PBA06" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">数量</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-input-number style="width: 100%" formControlName="PBA07" name="PBA07"></nz-input-number>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">未税单价</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-input-number style="width: 100%" formControlName="PBA08" name="PBA08"></nz-input-number>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">含税单价</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-input-number style="width: 100%" formControlName="PBA09" name="PBA09"></nz-input-number>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">未税金额</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-input-number style="width: 100%" formControlName="PBA10" name="PBA10"></nz-input-number>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">含税金额</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <nz-input-number style="width: 100%" formControlName="PBA11" name="PBA11"></nz-input-number>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>  
+      <div nz-row [nzGutter]="12">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nzFlex>
+                  <nz-form-label [nzSpan]="4">采购单号</nz-form-label>
+                  <nz-form-control style="flex: 1;">
+                      <input type="text" formControlName="PBA12" name="PBA12" nz-input>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+  </form>
+  <div nz-row>
+      <div nz-col [nzSpan]="24" style="text-align: right;">
+          <button nz-button [nzType]="'primary'" (click)="submitForm()">提交</button>
+          <button nz-button (click)="resetForm()">重置</button>
+          <a style="margin-left:8px;font-size:12px;" (click)="toggleCollapse()">
+      更多
+      <i class="anticon" [class.anticon-down]="isCollapse" [class.anticon-up]="!isCollapse"></i>
+    </a>
+      </div>
+  </div>
 </nz-card>

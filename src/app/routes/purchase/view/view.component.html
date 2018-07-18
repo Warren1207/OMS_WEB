@@ -5,32 +5,35 @@
 </div>
 <nz-card>
     <desc-list *ngIf="base && detail">
-        <desc-list-item term="出货单号">{{ base.OB01 }}</desc-list-item>
-        <desc-list-item term="贸易性质">{{ base.OB02 }}</desc-list-item>
-        <desc-list-item term="出货日期">{{base.OB03}}</desc-list-item>
-        <desc-list-item term="出货来源">{{base.OB04}}</desc-list-item>
-        <desc-list-item term="客户编号">{{base.OB05}}</desc-list-item>
-        <desc-list-item term="客户简称">{{base.OB06}}</desc-list-item>
-        <desc-list-item term="业务员">{{base.OB07}}</desc-list-item>
-        <desc-list-item term="部门">{{base.OB08}}</desc-list-item>
-        <desc-list-item term="币种">{{base.OB09}}</desc-list-item>
-        <desc-list-item term="汇率">{{base.OB10}}</desc-list-item>
-        <desc-list-item term="税种">{{base.OB11}}</desc-list-item>
-        <desc-list-item term="税率">{{base.OB12}}</desc-list-item>
-        <desc-list-item term="收款条件">{{base.OB13}}</desc-list-item>
-        <desc-list-item term="送货地址">{{base.OB14}}</desc-list-item>
-        <desc-list-item term="订单单号">{{base.OB21}}</desc-list-item>
-        <desc-list-item term="出货通知单号">{{base.OB22}}</desc-list-item>
-        <desc-list-item term="备注">{{base.OB19}}</desc-list-item>
+        <desc-list-item term="采购单号">{{ base.PA01 }}</desc-list-item>
+        <desc-list-item term="采购性质">{{ base.PA02 }}</desc-list-item>
+        <desc-list-item term="采购日期">{{base.PA03}}</desc-list-item>
+        <desc-list-item term="采购来源">{{base.PA04}}</desc-list-item>
+        <desc-list-item term="供应商编号">{{base.PA05}}</desc-list-item>
+        <desc-list-item term="供应商简称">{{base.PA06}}</desc-list-item>
+        <desc-list-item term="采购员">{{base.PA07}}</desc-list-item>
+        <desc-list-item term="采购部门">{{base.PA08}}</desc-list-item>
+        <desc-list-item term="币种">{{base.PA09}}</desc-list-item>
+        <desc-list-item term="汇率">{{base.PA10}}</desc-list-item>
+        <desc-list-item term="税种">{{base.PA11}}</desc-list-item>
+        <desc-list-item term="税率">{{base.PA12}}</desc-list-item>
+        <desc-list-item term="付款">{{base.PA13}}</desc-list-item>
+        <desc-list-item term="送货地址">{{base.PA14}}</desc-list-item>
+        <desc-list-item term="备注">{{base.PA19}}</desc-list-item>
 
-        <desc-list-item term="产品编码">{{detail.OBA03}}</desc-list-item>
-        <desc-list-item term="品名">{{detail.OBA04}}</desc-list-item>
-        <desc-list-item term="规格">{{detail.OBA05}}</desc-list-item>
-        <desc-list-item term="单位">{{detail.OBA06}}</desc-list-item>
-        <desc-list-item term="数量">{{detail.OBA07}}</desc-list-item>
-        <desc-list-item term="未税单价">{{detail.OBA08}}</desc-list-item>
-        <desc-list-item term="含税单价">{{detail.OBA09}}</desc-list-item>
-        <desc-list-item term="未税金额">{{detail.OBA10}}</desc-list-item>
-        <desc-list-item term="含税金额">{{detail.OBA11}}</desc-list-item>
+        <desc-list-item term="产品编码">{{detail.PAA03}}</desc-list-item>
+        <desc-list-item term="品名">{{detail.PAA04}}</desc-list-item>
+        <desc-list-item term="规格">{{detail.PAA05}}</desc-list-item>
+        <desc-list-item term="单位">{{detail.PAA06}}</desc-list-item>
+        <desc-list-item term="数量">{{detail.PAA07}}</desc-list-item>
+        <desc-list-item term="未税单价">{{detail.PAA08}}</desc-list-item>
+        <desc-list-item term="含税单价">{{detail.PAA09}}</desc-list-item>
+        <desc-list-item term="未税金额">{{detail.PAA10}}</desc-list-item>
+        <desc-list-item term="含税金额">{{detail.PAA11}}</desc-list-item>
+        <desc-list-item term="原始交货日">{{detail.PAA12}}</desc-list-item>
+        <desc-list-item term="原始到厂日">{{detail.PAA13}}</desc-list-item>
+        <desc-list-item term="原始到库日">{{detail.PAA14}}</desc-list-item>
+        <desc-list-item term="来源类型">{{detail.PAA15}}</desc-list-item>
+        <desc-list-item term="来源单号">{{detail.PAA16}}</desc-list-item>
     </desc-list>
 </nz-card>
