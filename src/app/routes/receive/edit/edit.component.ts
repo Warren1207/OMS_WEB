@@ -70,8 +70,8 @@ export class ReceiveEditComponent implements OnInit {
         this.service.getFn(`get/${this.id}`).subscribe(
           function(res){
             this.basicForm.patchValue(res)
-            if(res.NUMBER){
-              this.service.getFn('getDetail/'+res.NUMBER).subscribe(res => this.detailForm.patchValue(res));
+            if(res.PB01){
+              this.service.getFn('getDetail/'+res.PB01).subscribe(res => this.detailForm.patchValue(res));
             }
           }.bind(this)
         );

@@ -73,8 +73,8 @@ import { PurchaseService } from '../purchase.service';
         this.service.getFn(`get/${this.id}`).subscribe(
           function(res){
             this.basicForm.patchValue(res)
-            if(res.NUMBER){
-              this.service.getFn('getDetail/'+res.NUMBER).subscribe(res => this.detailForm.patchValue(res));
+            if(res.PA01){
+              this.service.getFn('getDetail/'+res.PA01).subscribe(res => this.detailForm.patchValue(res));
             }
           }.bind(this)
         );

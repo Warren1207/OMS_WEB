@@ -12,11 +12,7 @@
         "text": "菜单",
         "group": true,
         "hideInBreadcrumb": true,
-        "children": [{
-                "text": "客户管理",
-                "link": "/widgets",
-                "icon": "icon-speedometer"
-            },
+        "children": [
             {
                 "text": "订单管理",
                 "link": "/order/list",
@@ -40,11 +36,6 @@
             {
                 "text": "收货单管理",
                 "link": "/receive/list",
-                "icon": "icon-grid"
-            },
-            {
-                "text": "订单转采购",
-                "link": "/widgets",
                 "icon": "icon-grid"
             }
         ]

@@ -13,11 +13,11 @@ export class ReceiveService {
 
     /* GET 方法 */
     getFn(url: string) {
-        return this.http.get('omsApi/purchase/' + url).catch(this.handleError);
+        return this.http.get('omsApi/receive/' + url).catch(this.handleError);
     }
     /* POST 方法 */
     postFn(url: string, params: any) {
-        return this.http.post('omsApi/purchase/' + url, params, this.httpHead).catch(this.handleError);
+        return this.http.post('omsApi/receive/' + url, params, this.httpHead).catch(this.handleError);
     }
 
     handleError(error: any) {

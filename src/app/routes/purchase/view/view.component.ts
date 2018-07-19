@@ -22,8 +22,8 @@ export class PurchaseViewComponent implements OnInit {
   ngOnInit() {
     this.service.getFn(`get/`+this.id).subscribe(function(res){
       this.base = res;
-      if(this.base.OB01){
-        this.service.getFn('getDetail/'+this.base.OB01).subscribe(res => this.detail = res);
+      if(this.base.PA01){
+        this.service.getFn('getDetail/'+this.base.PA01).subscribe(res => this.detail = res);
       }
     }.bind(this));
   }
